@@ -11,36 +11,32 @@ import java.text.NumberFormat;
 public class InputPanel extends JPanel {
     private final String[] labels = {"Height (cm):", "Weight (kg):"};
     private JPanel wPanel, hPanel;
-    private JButton calculateButton;
     private NumberFormat format;
-    private JFormattedTextField field;
+    public static JFormattedTextField[] fields = new JFormattedTextField[2];
     
     public InputPanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setSize(new Dimension(100, 100));
 
         wPanel = new JPanel();
         wPanel.setLayout(new FlowLayout());
-        setPanel(wPanel, 0);
+        setExtraPanel(wPanel, 0);
         hPanel = new JPanel();
         hPanel.setLayout(new FlowLayout());
-        setPanel(hPanel, 1);
-
-        calculateButton = new JButton("Calculate");
-        calculateButton.setEnabled(true);
-        add(calculateButton);
+        setExtraPanel(hPanel, 1);
     }
 
-    private void setPanel(JPanel panel, int i) {
+    private void setExtraPanel(JPanel panel, int i) {
         JLabel label;
         label = new JLabel(labels[i], JLabel.TRAILING);
         panel.add(label);
 
         format = NumberFormat.getInstance();
         format.setMaximumIntegerDigits(3);
-        field = new JFormattedTextField(format);
-        field.setPreferredSize(new Dimension(100, 20));
-        label.setLabelFor(field);
-        panel.add(field);
+        fields[i] = new JFormattedTextField(format);
+        fields[i].setPreferredSize(new Dimension(100, 20));
+        label.setLabelFor(fields[i]);
+        panel.add(fields[i]);
 
         this.add(panel);
     }
