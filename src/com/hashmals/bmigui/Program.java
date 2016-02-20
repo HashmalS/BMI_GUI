@@ -8,9 +8,9 @@ import javax.swing.*;
  */
 public class Program {
     public static void main(String[] args) {
-        UserFrame userFrame = new UserFrame();
-        userFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        userFrame.setSize(250, 200);
-        userFrame.setVisible(true);
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainFrame.setSize(250, 200);
+        mainFrame.setVisible(true);
     }
 }
