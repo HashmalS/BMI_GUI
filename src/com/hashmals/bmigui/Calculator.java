@@ -34,6 +34,6 @@ public class Calculator {
     }
 
     public double calculateImperial() {
-        return (weight / Math.pow((height / 100), 2)) * 703;
+        return ((double)weight / Math.pow(((double)height / 100), 2)) * 703;
     }
 }
